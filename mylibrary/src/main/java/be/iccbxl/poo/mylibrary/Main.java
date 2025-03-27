@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import be.iccbxl.poo.mylibrary.entities.Book;
 import be.iccbxl.poo.mylibrary.entities.MyLibrary;
+import be.iccbxl.poo.mylibrary.entities.NotAvailableException;
 import be.iccbxl.poo.mylibrary.entities.Person;
 import be.iccbxl.poo.mylibrary.entities.RangeException;
 
@@ -86,6 +87,13 @@ public class Main {
                 /* Mock */
 
                     //Emprunt
+                    try {
+                        person.emprunter(book);    
+                    } catch (NotAvailableException e) {
+                        System.out.println("Le livre sélectionné n'est plus disponible.");
+                    }
+
+
                     ArrayList<Book> books = person.getLoans().get(LocalDate.now());
                     books.add(book);
                     person.getLoans().put(LocalDate.now(), books);

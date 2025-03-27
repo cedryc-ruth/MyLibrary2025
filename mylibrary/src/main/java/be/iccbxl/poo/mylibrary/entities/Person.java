@@ -25,4 +25,8 @@ public class Person {
         //TODO
         return null;
     }
+
+    public void emprunter(Book book) {
+        //TODO
+    }
 }
