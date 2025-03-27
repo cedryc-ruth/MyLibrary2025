@@ -23,6 +23,10 @@ public class Main {
 	            2 - Ajouter un livre
                 3 - Emprunter un livre
                 4 - Afficher les statistiques
+                5 - Sauvegarder les membres
+                6 - Sauvegarder les livres
+                7 - Charger les membres
+                8 - Charger les livres
                 0 – Quitter
          */
         MyLibrary library = new MyLibrary();
@@ -88,7 +92,7 @@ public class Main {
 
                     //Emprunt
                     try {
-                        person.emprunter(book);    
+                        person.borrows(book);
                     } catch (NotAvailableException e) {
                         System.out.println("Le livre sélectionné n'est plus disponible.");
                     }
@@ -98,6 +102,16 @@ public class Main {
                     books.add(book);
                     person.getLoans().put(LocalDate.now(), books);
         
+            case 5 :
+                /* Mock */
+                library.saveBooks(library.getBooks());
+                
+                //TODO Gestion des cas d'erreur
+            case 6 :
+                /* Mock */
+                library.savePeople(library.getPeople());
+
+                //TODO Gestion des cas d'erreur
             default:
                 System.out.println("Fin du programme.");
                 System.exit(0);

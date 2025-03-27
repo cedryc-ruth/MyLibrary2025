@@ -18,14 +18,14 @@ import be.iccbxl.poo.mylibrary.entities.Person;
 public class PersonTest {
 
     @Test
-    public void emprunter() {
+    public void borrows() {
         //Préparation
         Map<LocalDate, ArrayList<Book>> loans = new TreeMap<LocalDate, ArrayList<Book>>();
         Person bob = new Person(UUID.randomUUID(),"Bob",LocalDate.of(2020, 10, 25), loans);
         Book book = new Book("Une vie","Guy de Maupassant",(short)210);
         
         //Utilisation
-        bob.emprunter(book);
+        bob.borrows(book);
 
         //Vérifications
         ArrayList<Book> emprunts = bob.getLoans().get(LocalDate.now());
@@ -42,13 +42,13 @@ public class PersonTest {
         Book book = new Book("Une vie","Guy de Maupassant",(short)210);
         
         //Utilisation
-        bob.emprunter(book);    //1 seul exemplaire
+        bob.borrows(book);    //1 seul exemplaire
         
         
         //Vérifications
         assertThrows(NotAvailableException.class, () -> {
             //Utilisation
-            lydia.emprunter(book);
+            lydia.borrows(book);
         });
         
         ArrayList<Book> emprunts = lydia.getLoans().get(LocalDate.now());

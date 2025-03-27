@@ -26,7 +26,7 @@ public class Person {
         return null;
     }
 
-    public void emprunter(Book book) {
+    public void borrows(Book book) {
         //TODO
     }
 }
