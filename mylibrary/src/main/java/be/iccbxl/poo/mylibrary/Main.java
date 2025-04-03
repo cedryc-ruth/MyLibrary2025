@@ -29,6 +29,11 @@ public class Main {
                 8 - Charger les livres
                 0 – Quitter
          */
+
+        String xmlFilename = "mylibrary/data/books.xml";
+        String jsonFilename = "mylibrary/data/books.json";
+        String csvFilename = "mylibrary/data/books.csv";
+
         MyLibrary library = new MyLibrary();
         library.setName("Nid des lecteurs");
         
@@ -40,6 +45,10 @@ public class Main {
 	        +"\t2 - Ajouter un livre\n"
             +"\t3 - Emprunter un livre\n"
             +"\t4 - Afficher les statistiques\n"
+            +"\t5 - Sauvegarder les membres\n"
+            +"\t6 - Sauvegarder les livres\n"
+            +"\t7 - Charger les membres\n"
+            +"\t8 - Charger les livres\n"
             +"\t0 - Quitter";
 
         //Affichage du menu
@@ -52,7 +61,7 @@ public class Main {
                 scanner.nextLine(); //Vider le tampon
 
                 //Valider l'entrée utilisateur (entier compris entre 0 et 4)
-                if(choix<0 || choix>4) {
+                if(choix<0 || choix>8) {
                     throw new RangeException("Choix non valide :"+choix+" ([0,1,2,3,4])");
                 }
             } catch (InputMismatchException e) {
@@ -104,14 +113,35 @@ public class Main {
         
             case 5 :
                 /* Mock */
-                library.saveBooks(library.getBooks());
+                //library.savePeople(library.getPeople());              
                 
                 //TODO Gestion des cas d'erreur
             case 6 :
                 /* Mock */
-                library.savePeople(library.getPeople());
+                Book b = new Book("Une vie","Maupassant",(short)120);
+                
+                Person person2 = new Person();
+                person2.setName("Bob Sull");
+                person2.borrows(b);
+               
+                library.addBook(b);
+                library.addBook(new Book("Twilight","Stephenie Meyer",(short)523));
+                library.addBook(new Book("Les rivières éteintes","Dia",(short)148));
 
-                //TODO Gestion des cas d'erreur
+                /* Mock END */
+
+                //library.saveBooks(xmlFilename, "xml");
+                //library.saveBooks(jsonFilename, "json");
+                library.saveBooksToCSVFile(csvFilename);
+                break;
+            case 7 :
+                    //TODO
+                    break;
+            case 8 :
+                library.loadBooks(xmlFilename, "xml");
+                //library.loadBooks(jsonFilename, "json");
+                System.out.println(library.getBooks());
+                break;            
             default:
                 System.out.println("Fin du programme.");
                 System.exit(0);

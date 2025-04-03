@@ -1,0 +1,37 @@
+<list>
+  <book id="3a189401-fe2a-4fe3-abd1-7c0e74c6d6c1">
+    <title>Une vie</title>
+    <author>Maupassant</author>
+    <totalPages>120</totalPages>
+    <loadPeriod>7</loadPeriod>
+    <rentalPrice>1.0</rentalPrice>
+    <language>FR</language>
+    <borrowable>true</borrowable>
+    <person fullname="Bob Sull">
+      <loans class="tree-map">
+        <entry>
+          <local-date>2025-04-03</local-date>
+          <list/>
+        </entry>
+      </loans>
+    </person>
+  </book>
+  <book id="7c7ea1bf-bb0d-46fa-afd9-4cc82e28aeb9">
+    <title>Twilight</title>
+    <author>Stephenie Meyer</author>
+    <totalPages>523</totalPages>
+    <loadPeriod>7</loadPeriod>
+    <rentalPrice>1.0</rentalPrice>
+    <language>FR</language>
+    <borrowable>true</borrowable>
+  </book>
+  <book id="ae1732b6-cc6e-4159-a83a-5980822c4772">
+    <title>Les rivières éteintes</title>
+    <author>Dia</author>
+    <totalPages>148</totalPages>
+    <loadPeriod>7</loadPeriod>
+    <rentalPrice>1.0</rentalPrice>
+    <language>FR</language>
+    <borrowable>true</borrowable>
+  </book>
+</list>

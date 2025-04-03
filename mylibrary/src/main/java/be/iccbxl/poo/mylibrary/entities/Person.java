@@ -27,6 +27,16 @@ public class Person {
     }
 
     public void borrows(Book book) {
-        //TODO
+        ArrayList<Book> loanedBooks = loans.get(LocalDate.now());
+
+        if(loanedBooks!=null)   {
+            if(!loanedBooks.contains(book)) loanedBooks.add(book);
+        } else {
+            loanedBooks = new ArrayList<>();
+        }
+        
+        loans.put(LocalDate.now(), loanedBooks);
+
+        if(!book.getBorrowers().contains(this)) book.getBorrowers().add(this);
     }
 }

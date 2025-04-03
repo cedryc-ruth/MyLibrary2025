@@ -16,7 +16,7 @@ public class FileWriterTest {
         FileWriter fw = null;
         BufferedWriter bw = null;
 
-        String ligne = "Une ligne.";
+        String ligne = bob.getUUID() + ";"+ bob.getName()+";"+bob.getLoans().toString();
 
         if(!f.exists()) {
             try {
